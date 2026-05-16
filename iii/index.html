@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background: #000;
+            overflow-x: hidden;
+        }
+
+        .hero{
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* الفيديو */
+        .bg-video{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 1;
+        }
+
+        /* طبقة غامقة فوق الفيديو */
+        .overlay{
+            position: absolute;
+            inset: 0;
+        }
+
+        /* الشبكة */
+        .grid{
+            position: absolute;
+            inset: 0;
+            background-image:
+            linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+        }
+
+        /* المحتوى */
+        .content{
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .logo{
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            font-size: 35px;
+            font-weight: bold;
+            z-index: 3;
+        }
+
+        .date{
+            border: 2px solid yellow;
+            padding: 8px 18px;
+            margin-bottom: 20px;
+            color: yellow;
+            font-size: 14px;
+            border-radius: 8px;
+        }
+
+        h1{
+            font-size: 75px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        h1 span{
+            color: yellow;
+        }
+
+        p{
+            max-width: 700px;
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 35px;
+        }
+
+        .buttons{
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn{
+            padding: 14px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .btn-yellow{
+            background: yellow;
+            color: black;
+            font-weight: bold;
+        }
+
+        .btn-dark{
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .btn:hover{
+            transform: scale(1.05);
+        }
+
+        @media(max-width:768px){
+
+            h1{
+                font-size: 50px;
+            }
+
+            p{
+                font-size: 15px;
+            }
+
+            .logo{
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hero">
+
+        <!-- الفيديو -->
+        <video autoplay muted loop playsinline class="bg-video" id="bgVideo">
+            <source src="asmp4d." type="video/mp4">
+        </video>
+
+        <!-- طبقة غامقة -->
+        <div class="overlay"></div>
+
+        <!-- الشبكة -->
+        <div class="grid"></div>
+
+        <!-- اللوجو -->
+        <div class="logo">MA</div>
+
+        <!-- المحتوى -->
+        <div class="content">
+
+            <div class="date">2026 - مجموعة جديدة</div>
+
+            <h1>
+                واحه <br>
+                <span>بكل</span> لون
+            </h1>
+
+            <p>
+                ملابس مصنوعة لتناسب شخصيتك وتتكلم بدلاً عنك
+            </p>
+
+            <div class="buttons">
+                <a href="#" class="btn btn-yellow">تسوق الآن</a>
+                <a href="#" class="btn btn-dark">اعرف أكثر</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <script>
+        // ضمان تشغيل الفيديو تلقائياً
+        window.addEventListener('load', function() {
+            const video = document.getElementById('bgVideo');
+            if (video) {
+                video.play().catch(function(error) {
+                    console.log("Autoplay prevented:", error);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
